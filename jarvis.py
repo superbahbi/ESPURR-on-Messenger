@@ -24,7 +24,6 @@ def search():
 
 @app.route('/webhook/', methods=['GET', 'POST'])
 def webhook():
-    global senderData
     if request.method == 'POST':
         data = request.get_json(force=True)
         messaging_events = data['entry'][0]['messaging']
@@ -38,7 +37,7 @@ def webhook():
                     },
                     'message': modules.search(text)
                 }
-                config.SENDER_DATA = sender
+                config.senderdata.append(sender)
                 r = requests.post('https://graph.facebook.com/v2.6/me/messages', params={'access_token': ACCESS_TOKEN}, json=payload)
         return ''  # 200 OK
     elif request.method == 'GET':  # Verification

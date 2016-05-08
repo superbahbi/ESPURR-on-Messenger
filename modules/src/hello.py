@@ -7,7 +7,7 @@ from templates.text import TextTemplate
 def process(input, entities=None):
     ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN', config.ACCESS_TOKEN)
     graph = facebook.GraphAPI(ACCESS_TOKEN)
-    profile = graph.get_object(config.SENDER_DATA)
+    profile = graph.get_object(config.senderdata[0])
     name = profile['name'].split()
     greetings = [
         'Welcome home, %s' % name[0],
