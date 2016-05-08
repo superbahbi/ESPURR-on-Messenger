@@ -29,7 +29,6 @@ def webhook():
         messaging_events = data['entry'][0]['messaging']
         for event in messaging_events:
             sender = event['sender']['id']
-            config.senderdata.append(sender)
             if 'message' in event and 'text' in event['message']:
                 text = event['message']['text']
                 payload = {
@@ -49,4 +48,3 @@ def webhook():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), debug=True)
-    config.init()  
