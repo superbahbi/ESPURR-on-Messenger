@@ -2,8 +2,8 @@ import random
 import facebook
 import os
 import config
-
 from templates.text import TextTemplate
+
 def process(input, entities=None):
     ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN', config.ACCESS_TOKEN)
     graph = facebook.GraphAPI(ACCESS_TOKEN)
