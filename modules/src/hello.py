@@ -1,15 +1,22 @@
 import random
-from templates.text import TextTemplate
+import facebook
+import os
+import config
 
-def process(input, entities=None):
+from templates.text import TextTemplate
+def process(input, entities=None, sender=None):
+    FACEBOOK_ACCESS_TOKEN = os.environ.get('FACEBOOK_ACCESS_TOKEN', config.FACEBOOK_ACCESS_TOKEN)
+    graph = facebook.GraphAPI(FACEBOOK_ACCESS_TOKEN)
+    profile = graph.get_object(sender)
+    name = profile['name'].split()
     greetings = [
-        'Welcome home, sir...',
-        'All wrapped up here, sir. Will there be anything else?',
-        'Sir, I think I need to sleep now...',
+        'Welcome home, %s' % name[0],
+        'All wrapped up here, %s. Will there be anything else?'  % name[0],
+        '%s, I think I need to sleep now...' % name[0],
         'I seem to do quite well for a stretch, and then at the end of the sentence I say the wrong cranberry.',
-        'At your service, sir.',
+        'At your service, %s' % name[0],
         'You are not authorized to access this area.',
-        'Oh hello, sir!',
+        'Oh hello, %s' % name[0],
         'Perhaps, if you intend to visit other planets, we should improve the exosystems.',
     ]
     output = {

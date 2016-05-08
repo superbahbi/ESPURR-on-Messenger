@@ -23,10 +23,10 @@ def process_query(input):
     except:
         return None, {}
 
-def search(input):
+def search(input, sender=None):
     intent, entities = process_query(input)
     if intent is not None:
-        data = sys.modules['modules.src.' + intent].process(input, entities)
+        data = sys.modules['modules.src.' + intent].process(input, entities, sender)
         if data['success']:
             return data['output']
         else:
