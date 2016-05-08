@@ -29,6 +29,7 @@ def webhook():
         messaging_events = data['entry'][0]['messaging']
         for event in messaging_events:
             sender = event['sender']['id']
+            config.senderdata.append(sender)
             if 'message' in event and 'text' in event['message']:
                 text = event['message']['text']
                 payload = {
@@ -37,7 +38,7 @@ def webhook():
                     },
                     'message': modules.search(text)
                 }
-                config.senderdata.append(sender)
+                
                 r = requests.post('https://graph.facebook.com/v2.6/me/messages', params={'access_token': ACCESS_TOKEN}, json=payload)
         return ''  # 200 OK
     elif request.method == 'GET':  # Verification
