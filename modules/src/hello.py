@@ -4,10 +4,10 @@ import os
 import config
 
 from templates.text import TextTemplate
-def process(input, entities=None, sender):
+def process(input, entities=None):
     FACEBOOK_ACCESS_TOKEN = os.environ.get('FACEBOOK_ACCESS_TOKEN', config.FACEBOOK_ACCESS_TOKEN)
     graph = facebook.GraphAPI(FACEBOOK_ACCESS_TOKEN)
-    profile = graph.get_object('me')
+    profile = graph.get_object('')
     name = profile['name'].split()
     greetings = [
         'Welcome home, %s' % name[0],

@@ -1,7 +1,7 @@
 import requests
 from templates.text import TextTemplate
 
-def process(input, entities, sender=None):
+def process(input, entities):
     output = {}
     try:
         from_currency = entities['from_currency'][0]['value'].upper()

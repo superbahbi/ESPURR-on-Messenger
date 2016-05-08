@@ -1,7 +1,7 @@
 import requests
 from templates.button import *
 
-def process(input, entities, sender=None):
+def process(input, entities):
     output = {}
     try:
         movie = entities['movie'][0]['value']
