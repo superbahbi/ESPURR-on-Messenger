@@ -1,7 +1,7 @@
 import requests
 from templates.text import TextTemplate
 
-def process(input, entities=None):
+def process(input, entities=None, sender=None):
     output = {}
     try:
         r = requests.get('http://tambal.azurewebsites.net/joke/random')
