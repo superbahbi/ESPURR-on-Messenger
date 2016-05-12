@@ -9,7 +9,7 @@ WIT_AI_ACCESS_TOKEN = os.environ.get('WIT_AI_ACCESS_TOKEN', config.WIT_AI_ACCESS
 
 def process_query(input):
     try:
-        r = requests.get('https://api.wit.ai/message?v=20160420&q=' + input, headers={
+        r = requests.get('https://api.wit.ai/message?v=20160511&q=' + input, headers={
             'Authorization': 'Bearer %s' % WIT_AI_ACCESS_TOKEN
         })
         data = r.json()
@@ -23,10 +23,10 @@ def process_query(input):
     except:
         return None, {}
 
-def search(input):
+def search(input, sender):
     intent, entities = process_query(input)
     if intent is not None:
-        data = sys.modules['modules.src.' + intent].process(input, entities)
+        data = sys.modules['modules.src.' + intent].process(input, entities, sender)
         if data['success']:
             return data['output']
         else:

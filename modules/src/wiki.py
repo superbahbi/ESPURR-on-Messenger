@@ -1,7 +1,7 @@
 import wikipedia
 from templates.text import TextTemplate
 
-def process(input, entities):
+def process(input, entities, sender):
     output = {}
     try:
         query = entities['wikipedia_search_query'][0]['value']

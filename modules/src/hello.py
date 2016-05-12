@@ -4,7 +4,7 @@ import os
 import config
 from templates.text import TextTemplate
 
-def process(input, entities=None):
+def process(input, entities=None, sender):
     ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN', config.ACCESS_TOKEN)
     graph = facebook.GraphAPI(ACCESS_TOKEN)
     profile = graph.get_object('me')

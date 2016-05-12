@@ -1,7 +1,7 @@
 import requests
 from templates.text import TextTemplate
 
-def process(input, entities):
+def process(input, entities, sender):
     output = {}
     try:
         word = entities['word'][0]['value']
