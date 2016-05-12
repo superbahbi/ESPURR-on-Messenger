@@ -13,7 +13,6 @@ def process_query(input):
             'Authorization': 'Bearer %s' % WIT_AI_ACCESS_TOKEN
         })
         data = r.json()
-        print data
         intent = data['outcomes'][0]['intent']
         entities = data['outcomes'][0]['entities']
         confidence = data['outcomes'][0]['confidence']
@@ -26,6 +25,7 @@ def process_query(input):
 
 def search(input):
     intent, entities = process_query(input)
+    print "intent: %s , entities: %s" % (intent, entities)
     if intent is not None:
         data = sys.modules['modules.src.' + intent].process(input, entities)
         if data['success']:
