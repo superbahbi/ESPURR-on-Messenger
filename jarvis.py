@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def about():
-    return 'Just A Rather Very Intelligent System, now on Messenger!'
+    return 'Espurr, now on Messenger!'
 
 @app.route('/process/')
 def process():
