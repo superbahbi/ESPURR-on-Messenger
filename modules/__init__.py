@@ -16,8 +16,7 @@ def process_query(input):
         intent = data['outcomes'][0]['intent']
         entities = data['outcomes'][0]['entities']
         confidence = data['outcomes'][0]['confidence']
-        print "data: %s" % (intent)
-        if intent in src.__all__:
+        if intent in src.__all__ and confidence > 0.5:
             return intent, entities
         else:
             return None, {}
@@ -26,7 +25,6 @@ def process_query(input):
 
 def search(input):
     intent, entities = process_query(input)
-    print "intent: %s , entities: %s" % (intent, entities)
     if intent is not None:
         data = sys.modules['modules.src.' + intent].process(input, entities)
         if data['success']:
