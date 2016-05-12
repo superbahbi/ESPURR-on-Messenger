@@ -13,6 +13,7 @@ def process_query(input):
             'Authorization': 'Bearer %s' % WIT_AI_ACCESS_TOKEN
         })
         data = r.json()
+        print data
         intent = data['outcomes'][0]['intent']
         entities = data['outcomes'][0]['entities']
         confidence = data['outcomes'][0]['confidence']
