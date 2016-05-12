@@ -19,9 +19,9 @@ def process_query(input):
         if intent in src.__all__ and confidence > 0.5:
             return intent, entities
         else:
-            return None, {}
+            return "help", {}
     except:
-        return None, {}
+        return "hello", {}
 
 def search(input):
     intent, entities = process_query(input)
