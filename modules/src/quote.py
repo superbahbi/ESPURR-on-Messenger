@@ -1,7 +1,7 @@
 import requests
 from templates.text import TextTemplate
 
-def process(input, entities=None, sender):
+def process(input, entities, sender):
     output = {}
     try:
         # Programming quotes
