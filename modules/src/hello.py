@@ -1,7 +1,5 @@
 import random
-import facebook
 import os
-import config
 from templates.text import TextTemplate
 
 def process(input, entities, sender):

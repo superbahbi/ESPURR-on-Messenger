@@ -4,6 +4,7 @@ import json
 import os
 import requests
 import modules
+import facebook
 
 ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN', config.ACCESS_TOKEN)
 VERIFY_TOKEN = os.environ.get('VERIFY_TOKEN', config.VERIFY_TOKEN)
@@ -20,7 +21,7 @@ def process():
 
 @app.route('/search/')
 def search():
-    return json.dumps(modules.search(request.args.get('q'), 'me'))
+    return json.dumps(modules.search(request.args.get('q'), me))
 
 @app.route('/webhook/', methods=['GET', 'POST'])
 def webhook():
