@@ -5,7 +5,7 @@ import config
 from templates.text import TextTemplate
 
 def process(input, entities, sender):
-    ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN', config.ACCESS_TOKEN)
+    ACCESS_TOKEN = os.environ.get('FACEBOOK_ACCESS_TOKEN', config.ACCESS_TOKEN)
     graph = facebook.GraphAPI(ACCESS_TOKEN)
     profile = graph.get_object(str(sender))
     name = profile['name'].split()
