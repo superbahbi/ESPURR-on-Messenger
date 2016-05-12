@@ -29,13 +29,17 @@ def webhook():
         messaging_events = data['entry'][0]['messaging']
         for event in messaging_events:
             sender = event['sender']['id']
+            
+            graph = facebook.GraphAPI(ACCESS_TOKEN)
+            profile = graph.get_object("%s" % (sender))
+            name = profile['first_name'].split()
             if 'message' in event and 'text' in event['message']:
                 text = event['message']['text']
                 payload = {
                     'recipient': {
                         'id': sender
                     },
-                    'message': modules.search(text, sender)
+                    'message': modules.search(text, name[0])
                 }
                 
                 r = requests.post('https://graph.facebook.com/v2.6/me/messages', params={'access_token': ACCESS_TOKEN}, json=payload)

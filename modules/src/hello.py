@@ -5,19 +5,15 @@ import config
 from templates.text import TextTemplate
 
 def process(input, entities, sender):
-    ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN', config.ACCESS_TOKEN)
-    graph = facebook.GraphAPI(ACCESS_TOKEN)
-    profile = graph.get_object("%s" % (sender))
-    name = profile['first_name'].split()
-    print "%s" % (sender)
+    
     greetings = [
-        'Welcome home, %s' % name[0],
-        'All wrapped up here, %s. Will there be anything else?'  % name[0],
-        '%s, I think I need to sleep now...' % name[0],
+        'Welcome home, %s' % sender,
+        'All wrapped up here, %s. Will there be anything else?'  % sender,
+        '%s, I think I need to sleep now...' % sender,
         'I seem to do quite well for a stretch, and then at the end of the sentence I say the wrong cranberry.',
-        'At your service, %s' % name[0],
+        'At your service, %s' % sender,
         'You are not authorized to access this area.',
-        'Oh hello, %s' % name[0],
+        'Oh hello, %s' % sender,
         'Perhaps, if you intend to visit other planets, we should improve the exosystems.',
     ]
     output = {
