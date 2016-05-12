@@ -3,7 +3,6 @@ import os
 import requests
 import sys
 from src import *
-from wit import Wit
 from templates.text import TextTemplate
 
 WIT_AI_ACCESS_TOKEN = os.environ.get('WIT_AI_ACCESS_TOKEN', config.WIT_AI_ACCESS_TOKEN)
@@ -33,4 +32,4 @@ def search(input):
         else:
             return TextTemplate('Something didn\'t work as expected! I\'ll report this to my master.').get_message()
     else:
-        return TextTemplate(entities['message_body'][0]['value']).get_message()
+        return TextTemplate('I\'m sorry; I\'m not sure I understand what you\'re trying to say sir.\nTry typing "help" or "request"').get_message()
