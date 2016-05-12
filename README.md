@@ -2,7 +2,7 @@
 
 Espurr, now on Messenger! Fork from JARVIS-on-Messenger
 
-[![Build Status](https://github.com/superbahbi/ESPURR-on-Messenger.svg?branch=master)](https://github.com/superbahbi/ESPURR-on-Messenger)
+[![Build Status](https://travis-ci.org/superbahbi/ESPURR-on-Messenger.svg?branch=master)](https://github.com/superbahbi/ESPURR-on-Messenger)
 
 
 Messenger is now used by 900 million people every month. With the launch of Send / Receive API, bots are about to [take](http://time.com/4291214/facebook-messenger-bots/) [over](http://www.computerworld.com/article/3055588/social-media/an-army-of-chatbots-will-take-over-facebook-here-s-why.html).
@@ -19,7 +19,7 @@ Messenger is now used by 900 million people every month. With the launch of Send
 `anything you want book`  
 `random quote`  
 `usd to eur rate`  
-More examples can be found [here](https://github.com/swapagarwal/JARVIS-on-Messenger/tree/master/modules/tests).
+More examples can be found [here](https://github.com/superbahbi/ESPURR-on-Messenger/tree/master/modules/tests).
 
 ### Local Development / Testing
 
