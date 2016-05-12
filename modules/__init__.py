@@ -32,4 +32,4 @@ def search(input):
         else:
             return TextTemplate('Something didn\'t work as expected! I\'ll report this to my master.').get_message()
     else:
-        return TextTemplate(intent).get_message()
+        return TextTemplate(entities['message_body']['value']).get_message()
