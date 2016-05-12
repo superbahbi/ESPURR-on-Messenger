@@ -16,7 +16,7 @@ def process_query(input):
         intent = data['outcomes'][0]['intent']
         entities = data['outcomes'][0]['entities']
         confidence = data['outcomes'][0]['confidence']
-        print "intent: %s , entities: %s , confidence" % (intent, entities, confidence)
+        print "data: %s" % (data)
         if intent in src.__all__:
             return intent, entities
         else:
