@@ -9,6 +9,7 @@ def process(input, entities, sender):
     graph = facebook.GraphAPI(ACCESS_TOKEN)
     profile = graph.get_object('me')
     name = profile['name'].split()
+    print "%s" % (sender)
     greetings = [
         'Welcome home, %s' % name[0],
         'All wrapped up here, %s. Will there be anything else?'  % name[0],
