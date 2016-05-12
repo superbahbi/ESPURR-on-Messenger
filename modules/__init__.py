@@ -16,12 +16,12 @@ def process_query(input):
         intent = data['outcomes'][0]['intent']
         entities = data['outcomes'][0]['entities']
         confidence = data['outcomes'][0]['confidence']
-        if intent in src.__all__ and confidence > 0.5:
+        if intent in src.__all__:
             return intent, entities
         else:
-            return "help", {}
+            return None, {}
     except:
-        return "hello", {}
+        return None, {}
 
 def search(input):
     intent, entities = process_query(input)
