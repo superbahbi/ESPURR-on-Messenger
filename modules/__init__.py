@@ -3,6 +3,7 @@ import os
 import requests
 import sys
 from src import *
+from wit import Wit
 from templates.text import TextTemplate
 
 WIT_AI_ACCESS_TOKEN = os.environ.get('WIT_AI_ACCESS_TOKEN', config.WIT_AI_ACCESS_TOKEN)
@@ -25,7 +26,7 @@ def process_query(input):
 
 def search(input):
     intent, entities = process_query(input)
-    if intent is not None:
+    if intent is None:
         data = sys.modules['modules.src.' + intent].process(input, entities)
         if data['success']:
             return data['output']
