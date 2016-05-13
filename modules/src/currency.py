@@ -9,7 +9,6 @@ def process(input, entities, sender):
         r = requests.get('http://api.fixer.io/latest?base=' + from_currency)
         data = r.json()
         conversion_rate = data['rates'][to_currency]
-
         conversion_details = '1 %s = %.4f %s' % (from_currency, conversion_rate, to_currency)
         if 'number' in entities:
             amount = entities['number'][0]['value']
