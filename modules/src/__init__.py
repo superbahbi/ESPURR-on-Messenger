@@ -9,5 +9,6 @@ __all__ = [
     'movie',
     'quote',
     'request',
+    'weather',
     'wiki',
 ]
