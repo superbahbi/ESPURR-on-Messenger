@@ -1,7 +1,7 @@
 import requests
 from templates.text import TextTemplate
 
-def process(input, entities=None, sender):
+def process(input, entities, sender):
     output = {}
     try:
         r = requests.get('http://numbersapi.com/random/trivia',headers={'Content-Type':'application/json'})	
