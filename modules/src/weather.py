@@ -1,4 +1,5 @@
 import requests
+import os
 from templates.text import TextTemplate
 
 def process(input, entities, sender):
