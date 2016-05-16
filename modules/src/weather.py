@@ -8,13 +8,13 @@ def process(input, entities, sender):
     output = {}
     try:
         location = entities['location'][0]['value']
-        r = requests.get('http://api.openweathermap.org/data/2.5/weather?q=' + location + '&appid=' + OPENWEATHER_API)
+        r = requests.get('http://api.openweathermap.org/data/2.5/weather?q=' + location + '&appid=' + OPENWEATHER_API + '&units=imperial')
         data = r.json()
-        print data
+        print data['main']
         temp = data['main']['temp']
  
         output['input'] = input
-        output['output'] = TextTemplate(data['name']).get_message()
+        output['output'] = TextTemplate(data['main']['temp']).get_message()
         output['success'] = True
     except:
         output['success'] = False
