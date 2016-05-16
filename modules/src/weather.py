@@ -14,7 +14,7 @@ def process(input, entities, sender):
         temp = data['main']['temp']
  
         output['input'] = input
-        output['output'] = TextTemplate(temp).get_message()
+        output['output'] = TextTemplate(data).get_message()
         output['success'] = True
     except:
         output['success'] = False
