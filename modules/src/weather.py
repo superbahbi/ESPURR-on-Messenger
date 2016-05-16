@@ -12,7 +12,10 @@ def process(input, entities, sender):
         data = r.json()
         description = data['weather'][0]['description']
         temp = data['main']['temp']
-        msg = "Oh %s! Right now it's %s. %sF'" % (location, description, temp)
+        wind = data['wind']['speed'];
+        wind_direction = data['wind']['deg']
+        humidity = data['main']['humidity']
+        msg = "Oh %s! Right now it's %s.\nTemperature: %sF\nHumidity: %s\nWind: %s mph" % (location, description, temp, humidity, wind)
  
         output['input'] = input
         output['output'] = TextTemplate(msg).get_message()
