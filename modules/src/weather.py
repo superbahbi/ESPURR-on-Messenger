@@ -10,6 +10,7 @@ def process(input, entities, sender):
         location = entities['location'][0]['value']
         r = requests.get('http://api.openweathermap.org/data/2.5/weather?q=' + location + '&appid=' + OPENWEATHER_API)
         data = r.json()
+        print data
         temp = data['main']['temp']
  
         output['input'] = input
