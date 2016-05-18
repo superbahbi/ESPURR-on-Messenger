@@ -1,7 +1,7 @@
 import requests
 from templates.button import *
 
-def process(input, entities):
+def process(input, entities, sender):
     output = {}
     try:
         anime = entities['search_query'][0]['value']
