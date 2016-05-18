@@ -16,7 +16,7 @@ def process(input, entities, sender):
         wind_direction = data['wind']['deg']
         humidity = data['main']['humidity']
         name = data['name']
-        msg = "Oh %s! Right now it's %s.\nTemperature: %sF\nHumidity: %s\nWind: %s mph" % (name, description, temp, humidity, wind)
+        msg = "Oh %s! Right now it's %s.\nTemperature: %sF\nHumidity: %s%%\nWind: %s mph" % (name, description, temp, humidity, wind)
 
         output['input'] = input
         output['output'] = TextTemplate(msg).get_message()
