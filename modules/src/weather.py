@@ -23,4 +23,4 @@ def process(input, entities, sender):
         output['success'] = True
     except:
         output['success'] = False
-    return outputl
+    return output
