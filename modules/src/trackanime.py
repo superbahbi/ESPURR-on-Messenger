@@ -4,13 +4,13 @@ import config
 from firebase import firebase
 from templates.text import TextTemplate
 
-#FIREBASE_URL = os.environ.get('FIREBASE_URL', config.FIREBASE_URL)
+FIREBASE_URL = os.environ.get('FIREBASE_URL', config.FIREBASE_URL)
 def process(input, entities, sender):
     output = {}
     try:
         #firebase = firebase.FirebaseApplication(FIREBASE_URL, None)
         #result = firebase.get('/users', None)
-
+        print FIREBASE_URL
         template = TextTemplate()
         template.set_text('Name: %s' % (result))
         
