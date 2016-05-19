@@ -1,5 +1,6 @@
 import random
 import os
+import config
 from templates.text import TextTemplate
 import facebook
 

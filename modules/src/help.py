@@ -1,5 +1,7 @@
 from templates.text import TextTemplate
 import facebook
+import os
+import config
 
 ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN', config.ACCESS_TOKEN)
 def process(input, entities, sender):
