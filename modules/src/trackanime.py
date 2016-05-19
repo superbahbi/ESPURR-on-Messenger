@@ -1,21 +1,19 @@
 import requests
 import os
 import config
-from firebase import firebase
+import firebase
 from templates.text import TextTemplate
 
 FIREBASE_URL = os.environ.get('FIREBASE_URL', config.FIREBASE_URL)
 def process(input, entities, sender):
     output = {}
-    firebase = firebase.FirebaseApplication(FIREBASE_URL, None)
-    result = firebase.get('/user', None)
+    r = firebase.FirebaseApplication(FIREBASE_URL, None)
+    result = r.get('/user', None)
     template = TextTemplate()
-    print firebase
+    print r
     print result
     res = 'Name: %s' % (result)
     try:
-        
-        
         output['input'] = input
         output['output'] = TextTemplate(res).get_message()
         output['success'] = True
