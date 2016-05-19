@@ -11,7 +11,6 @@ def process(input, entities, sender):
         r = firebase.FirebaseApplication(FIREBASE_URL, None)
         result = firebase.post('/users', sender, {'print': 'silent'}, {'X_FANCY_HEADER': 'VERY FANCY'})
         #result = r.get('/user', None)
-        template = TextTemplate()
         res = 'Name: %s' % (sender)
         output['input'] = input
         output['output'] = TextTemplate(res).get_message()
