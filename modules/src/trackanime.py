@@ -1,10 +1,10 @@
 import requests
-import config
 import os
+import config
+from firebase import firebase
 from templates.text import TextTemplate
 
 FIREBASE_URL = os.environ.get('FIREBASE_URL', config.FIREBASE_URL)
-
 def process(input, entities, sender):
     output = {}
     try:
