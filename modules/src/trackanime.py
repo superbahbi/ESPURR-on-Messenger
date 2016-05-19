@@ -11,6 +11,7 @@ def process(input, entities, sender):
         firebase = firebase.FirebaseApplication(FIREBASE_URL, None)
         result = firebase.get('/user', None)
         template = TextTemplate()
+        print result
         template.set_text('Name: %s' % (result))
         
         output['input'] = input
