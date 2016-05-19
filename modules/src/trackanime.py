@@ -9,7 +9,7 @@ def process(input, entities, sender):
     output = {}
     try:
         r = firebase.FirebaseApplication(FIREBASE_URL, None)
-        data = "{'id': '%s', 'text': 'Hello'}" % (sender)
+        data ={'name': 'bahbi lee', 'id': sender,'created_at': datetime.datetime.now()}
         r.post('/users', data, {'print': 'silent'}, {'X_FANCY_HEADER': 'VERY FANCY'})
         #result = r.get('/user', None)
         res = 'Name: %s' % (sender)
