@@ -8,9 +8,8 @@ FIREBASE_URL = os.environ.get('FIREBASE_URL', config.FIREBASE_URL)
 def process(input, entities, sender):
     output = {}
     try:
-        #firebase = firebase.FirebaseApplication(FIREBASE_URL, None)
-        #result = firebase.get('/users', None)
-        print FIREBASE_URL
+        firebase = firebase.FirebaseApplication(FIREBASE_URL, None)
+        result = firebase.get('/user', None)
         template = TextTemplate()
         template.set_text('Name: %s' % (result))
         
