@@ -10,7 +10,7 @@ def process(input, entities, sender):
     try:
         r = firebase.FirebaseApplication(FIREBASE_URL, None)
         result = firebase.post('/users', sender, {'print': 'silent'}, {'X_FANCY_HEADER': 'VERY FANCY'})
-        //result = r.get('/user', None)
+        #result = r.get('/user', None)
         template = TextTemplate()
         res = 'Name: %s' % (sender)
         output['input'] = input
