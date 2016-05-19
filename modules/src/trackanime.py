@@ -11,11 +11,12 @@ def process(input, entities, sender):
         firebase = firebase.FirebaseApplication(FIREBASE_URL, None)
         result = firebase.get('/user', None)
         template = TextTemplate()
+        print firebase
         print result
-        template.set_text('Name: %s' % (result))
+        res = 'Name: %s' % (result)
         
         output['input'] = input
-        output['output'] = template.get_message()
+        output['output'] = TextTemplate(res).get_message()
         output['success'] = True
     except:
         output['success'] = False
