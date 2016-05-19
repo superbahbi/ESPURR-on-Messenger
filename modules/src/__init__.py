@@ -10,7 +10,7 @@ __all__ = [
     'movie',
     'quote',
     'request',
-    'trackanime'
+    'trackanime',
     'weather',
     'wiki',
 ]
