@@ -8,8 +8,9 @@ FIREBASE_URL = os.environ.get('FIREBASE_URL', config.FIREBASE_URL)
 def process(input, entities, sender):
     output = {}
     try:
+        title = entities['search_query'][0]['value']
         r = firebase.FirebaseApplication(FIREBASE_URL, None)
-        data = {'name': 'Ozgur Vatansever', 'age': 26}
+        data = {'id': sender, 'title': title}
         r.post('/users', data)
         #result = r.get('/user', None)
         res = 'Name: %s' % (sender)
