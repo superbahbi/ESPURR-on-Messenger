@@ -33,7 +33,6 @@ def search(input, sender):
         if data['success']:
             return data['output']
         else:
-
-            return TextTemplate(chatbot.get_response("Hello, how are you today?")).get_message()
+            return TextTemplate(chatbot.get_response(input)).get_message()
     else:
-        return TextTemplate('I\'m sorry; I\'m not sure I understand what you\'re trying to say sir.\nTry typing "help" or "request"').get_message()
+        return TextTemplate(chatbot.get_response(input)).get_message()
