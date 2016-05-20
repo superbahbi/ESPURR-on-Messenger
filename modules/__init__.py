@@ -27,6 +27,8 @@ def process_query(input):
 def search(input, sender):
     chatbot = ChatBot("Espurr")
     chatbot.train("chatterbot.corpus.english")
+    chatbot.train("chatterbot.corpus.english.greetings")
+    chatbot.train("chatterbot.corpus.english.conversations")
     intent, entities = process_query(input)
     if intent is not None:
         data = sys.modules['modules.src.' + intent].process(input, entities, sender)
