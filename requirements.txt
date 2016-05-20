@@ -21,3 +21,4 @@ wikipedia==1.4.0
 wit==3.4.1
 -e git+git://github.com/pythonforfacebook/facebook-sdk.git#egg=facebook-sdk
 -e git+git://github.com/ozgur/python-firebase.git#egg=python-firebase
+chatterbot==0.1.1
