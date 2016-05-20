@@ -12,8 +12,7 @@ def process(input, entities, sender):
         r = firebase.FirebaseApplication(FIREBASE_URL, None)
         data = {'id': sender, 'title': title}
         r.post('/users', data)
-        #result = r.get('/user', None)
-        res = 'Name: %s' % (sender)
+        res = 'Added %s to you list' % (title)
         output['input'] = input
         output['output'] = TextTemplate(res).get_message()
         output['success'] = True
