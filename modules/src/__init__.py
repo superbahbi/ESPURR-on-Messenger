@@ -13,4 +13,5 @@ __all__ = [
     'trackanime',
     'weather',
     'wiki',
+    'pokemon',
 ]
