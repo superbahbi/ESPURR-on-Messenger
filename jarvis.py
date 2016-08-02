@@ -45,17 +45,8 @@ def webhook():
             return request.args.get('hub.challenge')
         else:
             return 'Error, wrong validation token'
-def sendMessage(senderID):
-    payload = {
-        'recipient': {
-        'id': sender
-        },
-        'message': 'text'
-    }
-    r = requests.post('https://graph.facebook.com/v2.6/me/messages', params={'access_token': ACCESS_TOKEN}, json=payload)
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), debug=True)
-    while(true):
-        sendMessage("1074961015907280")
+
         
 
